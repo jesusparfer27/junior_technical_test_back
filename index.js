@@ -2,13 +2,17 @@ import express from 'express'
 import cors from 'cors'
 import { HOST, PORT } from './config/mongo.config.js'
 import mongoRoutes from './lib/routes.js'
+import path from 'path'
 
 const app = express()
 
 app.use(cors());
 app.use(express.json())
+
 app.use(express.urlencoded({extended:true}))
-app.use(express.static('public'))
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "public")))
 
 app.get('/', ( req , res ) => {
 
