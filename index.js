@@ -20,7 +20,7 @@ app.get('/', ( req , res ) => {
 
     const landingHTML = `
         <h1>Bienvenidos a nuestra REST-API</h1>
-        <p>Servidor uniciado en ${HOST};${PORT}</p>
+        <p>Servidor uniciado en ${HOST}:${PORT}</p>
     `;
 
     res.status(200).send(landingHTML)
