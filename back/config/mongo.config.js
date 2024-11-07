@@ -7,8 +7,6 @@ if (process.env.NODE_ENV !== 'production') {
     }
 }
 
-export const __dirname = path.resolve();
-
 export const HOST = process.env.HOST || "http://localhost";
 export const PORT = process.env.PORT || 3001
 
