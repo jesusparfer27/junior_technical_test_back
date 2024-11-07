@@ -5,6 +5,13 @@ const result = dotenv.config();
 import path from 'path';
 export const __dirname = path.resolve()
 
+if (process.env.NODE_ENV !== 'production') {
+    const result = dotenv.config();
+    if (result.error) {
+        throw new Error("Error al cargar las variables de entorno " + result.error);
+    }
+}
+
 if (result.error) {
     throw new Error("Error al cargar las variables de entorno " + result.error)
 }
