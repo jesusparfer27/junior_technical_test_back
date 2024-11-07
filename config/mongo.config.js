@@ -1,10 +1,5 @@
 import dotenv from 'dotenv'
 
-const result = dotenv.config();
-
-import path from 'path';
-export const __dirname = path.resolve()
-
 if (process.env.NODE_ENV !== 'production') {
     const result = dotenv.config();
     if (result.error) {
@@ -12,9 +7,7 @@ if (process.env.NODE_ENV !== 'production') {
     }
 }
 
-if (result.error) {
-    throw new Error("Error al cargar las variables de entorno " + result.error)
-}
+export const __dirname = path.resolve();
 
 export const HOST = process.env.HOST || "http://localhost";
 export const PORT = process.env.PORT || 3001
