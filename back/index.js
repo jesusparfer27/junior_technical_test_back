@@ -7,6 +7,8 @@ import { connectDB } from './data/mongodb.js';
 
 connectDB();
 
+// comment
+
 const app = express()
 
 app.use(cors());
