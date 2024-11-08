@@ -1,9 +1,28 @@
 {
-    "version" : 2,
-    "builds"  : [ { "src" : "index.js"  , "use" : "@vercel/node" } ],
-    "routes"  : [
-        {   "handle": "filesystem" },
-         { "src" : "/(.*)"     , "dest": "index.js"     } 
-        
-        ]
-}
+    "version": 2,
+    "builds": [
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "handle": "filesystem"
+      },
+      {
+        "src": "/API/v1/mongo/(.*)",
+        "headers": {
+          "Access-Control-Allow-Origin": "https://junior-technical-test-front.vercel.app",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+          "Access-Control-Allow-Headers": "Content-Type, Authorization"
+        },
+        "dest": "index.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "index.js"
+      }
+    ]
+  }
+  
