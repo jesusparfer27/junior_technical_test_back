@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import { mongodbUri } from '../config/mongo.config.js';
 
 // crear una conexión
-const connectDB = async () => {
+export const connectDB = async () => {
     try {
         
         console.log("Iniciando la conexión a MongoDB...");
@@ -14,6 +14,8 @@ const connectDB = async () => {
         process.exit(1);
     }
 };
+
+
 
 
 // crear nuestro esquema
@@ -65,4 +67,4 @@ const FurnitureNav = mongoose.model('FurnitureNav', furnitureNavSchema, 'furnitu
 
 console.log("Modelo Furniture creado y listo para usarse");
 
-export { connectDB, Furniture, FurnitureNav}
+export { Furniture, FurnitureNav }

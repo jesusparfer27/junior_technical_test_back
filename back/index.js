@@ -3,8 +3,11 @@ import cors from 'cors'
 import { HOST, PORT } from './config/mongo.config.js'
 import mongoRoutes from './lib/routes.js'
 import path from 'path'
+import {connectDB} from './data/mongodb.js'
 
 const app = express()
+
+connectDB()
 
 app.use(cors());
 app.use(express.json())
