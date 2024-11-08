@@ -15,6 +15,7 @@ const connectDB = async () => {
     }
 };
 
+
 // crear nuestro esquema
 const furnitureSchema = new mongoose.Schema({
     id: {
