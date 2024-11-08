@@ -16,6 +16,7 @@ app.use(express.urlencoded({extended:true}))
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "public")))
 
+
 app.get('/', ( req , res ) => {
 
     res.setHeader("Content-Type", "text/html")
@@ -27,6 +28,7 @@ app.get('/', ( req , res ) => {
 
     res.status(200).send(landingHTML)
 })
+
 
 // Rutas para mongoDB
 app.use('/API/v1/mongo', mongoRoutes)
