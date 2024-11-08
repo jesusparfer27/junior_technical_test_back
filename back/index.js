@@ -9,7 +9,13 @@ connectDB();
 
 const app = express()
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://junior-technical-test-front.vercel.app', // dominio de frontend
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
