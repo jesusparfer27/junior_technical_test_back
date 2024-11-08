@@ -4,10 +4,8 @@ import { mongodbUri } from '../config/mongo.config.js';
 // crear una conexión
 const connectDB = async () => {
     try {
-        
         console.log("Iniciando la conexión a MongoDB...");
         await mongoose.connect(mongodbUri);
-        console.log(mongodbUri)
         console.log("MongoDB conectado correctamente a la base de datos");
     } catch (e) {
         console.log("Error conectando a MongoDB: ", e.message);
