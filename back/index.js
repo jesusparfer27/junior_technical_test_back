@@ -5,11 +5,13 @@ import mongoRoutes from './lib/routes.js'
 import path from 'path'
 import { connectDB } from './data/mongodb.js';
 
+
+const app = express()
+
 connectDB();
 
 // comment
 
-const app = express()
 
 app.use(cors());
 app.use(express.json())
