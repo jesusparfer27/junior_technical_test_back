@@ -2,16 +2,14 @@ import mongoose from 'mongoose';
 import { mongodbUri } from '../config/mongo.config.js';
 
 // crear una conexión
-export const connectDB = async () => {
+const connectDB = async () => {
     try {
-        console.log("Connecting to MongoDB...");
-        await mongoose.connect(mongodbUri, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
-        console.log("MongoDB connected successfully.");
-    } catch (error) {
-        console.error("Error connecting to MongoDB:", error.message);
+        
+        console.log("Iniciando la conexión a MongoDB...");
+        await mongoose.connect(mongodbUri);
+        console.log("MongoDB conectado correctamente a la base de datos");
+    } catch (e) {
+        console.log("Error conectando a MongoDB: ", e.message);
         process.exit(1);
     }
 };
