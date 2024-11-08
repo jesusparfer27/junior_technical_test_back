@@ -6,11 +6,7 @@ import path from 'path'
 
 const app = express()
 
-app.use(cors({
-  origin: 'https://junior-technical-test-front.vercel.app',  // Asegúrate de que esta sea la URL correcta de tu frontend
-  methods: 'GET,POST,PUT,DELETE',  // Los métodos que necesitas permitir
-  allowedHeaders: 'Content-Type, Authorization',  // Los encabezados permitidos
-}));
+app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
