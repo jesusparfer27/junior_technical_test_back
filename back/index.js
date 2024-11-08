@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 const __dirname = path.resolve();
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static('public'));
 
 
 app.get('/', ( req , res ) => {
