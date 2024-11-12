@@ -3,6 +3,7 @@
     import { fileURLToPath } from 'url';
 
     const __filename = fileURLToPath(import.meta.url);
+    export const __dirname = path.dirname(__filename);  // Calculamos __dirname
 
     if (process.env.NODE_ENV !== 'production') {
         const result = dotenv.config();
