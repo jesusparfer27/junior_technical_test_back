@@ -4,6 +4,7 @@ import { HOST, PORT } from './config/mongo.config.js'
 import mongoRoutes from './lib/routes.js'
 import path from 'path'
 import { connectDB } from './data/mongodb.js';
+import { __dirname } from './config.js';
 
 
 const app = express()
@@ -16,7 +17,6 @@ connectDB();
 app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "public")))
 
 app.get('/', ( req , res ) => {
