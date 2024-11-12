@@ -14,7 +14,12 @@ connectDB();
 // comment
 
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://junior-technical-test-front.vercel.app', // Cambia esto al dominio de tu frontend
+    optionsSuccessStatus: 200 // Para navegadores antiguos que requieren esta opción
+};
+
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname, "public")))
