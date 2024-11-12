@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { HOST, PORT } from './config/mongo.config.js'
+import { HOST, PORT, __dirname } from './config/mongo.config.js'
 import mongoRoutes from './lib/routes.js'
 import path from 'path'
 import { connectDB } from './data/mongodb.js';
@@ -18,9 +18,9 @@ const corsOptions = {
     optionsSuccessStatus: 200 // Para navegadores antiguos que requieren esta opción
 };
 
+app.use(cors(corsOptions));
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-
 
 app.use(express.static(path.join(__dirname, "public")))
 
