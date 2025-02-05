@@ -1,4 +1,7 @@
 import { Furniture, FurnitureNav } from "../data/mongodb.js";
+import { connectDB } from "../data/mongodb.js";
+
+connectDB();
 
 export const getInfo = async (req, res, next) => {
     try {

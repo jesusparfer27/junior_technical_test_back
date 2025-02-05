@@ -5,11 +5,21 @@ import { mongodbUri } from '../config/mongo.config.js';
 const connectDB = async () => {
     try {
         console.log("Iniciando la conexión a MongoDB...");
-        await mongoose.connect(mongodbUri);
-        console.log("MongoDB conectado correctamente a la base de datos");
+
+        if (!mongodbUri) {
+            throw new Error("❌ Error: La URI de MongoDB no está definida. Verifica tu archivo de configuración.");
+        }
+
+        await mongoose.connect(mongodbUri, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        });
+
+        console.log("✅ MongoDB conectado correctamente a la base de datos");
     } catch (e) {
-        console.log("Error conectando a MongoDB: ", e.message);
-        process.exit(1);
+        console.error("❌ Error conectando a MongoDB:", e.message);
+        console.error("🔍 Verifica que la URI sea correcta y que MongoDB esté en ejecución.");
+        process.exit(1); // Detiene la ejecución si no se puede conectar
     }
 };
 
