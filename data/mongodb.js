@@ -4,7 +4,7 @@ import { mongodbUri } from '../config/mongo.config.js';
 // crear una conexión
 const connectDB = async () => {
     try {
-        console.log("Iniciando la conexión a MongoDB...");
+        console.log("Iniciando la conexión a MongoDB..."); 
 
         if (!mongodbUri) {
             throw new Error("❌ Error: La URI de MongoDB no está definida. Verifica tu archivo de configuración.");
